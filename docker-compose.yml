@@ -13,9 +13,9 @@ services:
     command: >
       sh -c "
       if [ ! -d /haraka/config ]; then
-        haraka -i /haraka
+        /usr/local/bin/haraka -i /haraka
       fi &&
-      haraka -c /haraka
+      /usr/local/bin/haraka -c /haraka
       "
 
 volumes:
