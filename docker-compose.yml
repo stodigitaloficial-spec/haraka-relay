@@ -1,0 +1,22 @@
+services:
+
+  haraka:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    restart: always
+
+    volumes:
+      - haraka_data:/haraka
+
+    command: >
+      sh -c "
+      if [ ! -d /haraka/config ]; then
+        haraka -i /haraka
+      fi &&
+      haraka -c /haraka
+      "
+
+volumes:
+  haraka_data:
